@@ -34,18 +34,12 @@ wheels/
 # VS Code
 .vscode/
 
-# Matplotlib
+# Matplotlib (generated plots)
 *.png
 *.jpg
 *.jpeg
 *.pdf
 *.svg
-
-# Data files (uncomment if you don't want to track data files)
-# *.txt
-# *.npz
-# *.mat
-# *.xlsx
 
 # OS
 .DS_Store

@@ -1,6 +1,6 @@
 # Strain Tuning Data Analysis
 
-This repository contains Python scripts for analyzing strain tuning data for quantum emitters. The project is located in the `StrainTuningDataFolder` directory.
+This repository contains a Jupyter notebook for analyzing strain tuning data for quantum emitters. The project is located in the `StrainTuningDataFolder` directory.
 
 ## Setup
 
@@ -25,94 +25,69 @@ All required packages are listed in `requirements.txt`. The main packages includ
 - **scipy** - Scientific computing (interpolation, optimization)
 - **lmfit** - Curve fitting and modeling
 - **pandas** - Data manipulation and analysis
-- **openpyxl** - Excel file reading (for Concentration.py)
-- **seaborn** - Statistical data visualization
-- **jupyter** - Interactive notebooks (optional)
+- **jupyter** - Interactive notebooks
 
-## Scripts
+## Analysis
 
-### Core Analysis Scripts
-- `g2.py` - g²(τ) correlation analysis with blinking model fitting
-- `PL_scan.py` - Photoluminescence scan data processing and visualization
-- `Strain_map.py` - Strain mapping and interpolation
-- `Lifetime.py` - Lifetime fitting with mono-exponential model
-- `Saturation_curve.py` - Power saturation curve analysis
-- `Tuning_emitters.py` - Emitter tuning analysis and comparison
-- `Beta_factor.py` - Beta factor colormap visualization
-- `Concentration.py` - Concentration vs depth analysis from Excel data
+### Main Analysis Notebook
+- `analysis.ipynb` - Complete analysis notebook containing all strain tuning data analysis
+
+The notebook includes the following analyses:
+- Beta factor coupling maps for different dipole orientations
+- Depth profile and impurity concentrations from SIMS measurements
+- Second-order correlation g(τ) analysis with blinking model fitting
+- Time-resolved lifetime fitting with mono-exponential decay
+- Photoluminescence scan mapping
+- Power saturation curve analysis
+- Strain map interpolation and visualization
+- Spectral tuning versus voltage for multiple emitters
 
 ### Data Files
-- `solo_rider_first_g2.mat` - g² correlation data
-- `PL_scan.npz` - Photoluminescence scan data
-- `Strain_larger_35V_241124.txt` - Strain measurement data
-- `lifetime_sL20_us_.txt` - Lifetime measurement data
-- `Saturation_spectrometer_B.npz` - Saturation curve data
-- `Tuning_emitter_A.npz` / `Tuning_emitter_B.npz` - Emitter tuning data
-- `betaTE0.npz` - Beta factor data
-- `Y0ORK987_YD_04 Type 2 sample (C).xlsx` - Concentration depth profile data
+- `beta_factors.npz` - Beta factor data for dipole-waveguide coupling
+- `depth_profile.npz` - Depth profile data from SIMS measurements
+- `g2_data.npz` - g² correlation data
+- `lifetime_data.npz` - Lifetime measurement data
+- `pl_scan.npz` - Photoluminescence scan data
+- `saturation_data.npz` - Saturation curve data
+- `strain_map.npz` - Strain mapping data
+- `tuning_A.npz` / `tuning_B.npz` - Emitter tuning data
 
 ## Usage
 
-### Method 1: Using convenience scripts (Recommended)
-Use the provided batch or PowerShell scripts to automatically activate the virtual environment and run analysis scripts:
-
-**Windows Batch:**
+### Running the Analysis
+1. Activate the virtual environment:
 ```bash
-run_analysis.bat script_name.py
-```
-
-**PowerShell:**
-```powershell
-.\run_analysis.ps1 script_name.py
-```
-
-**Examples:**
-```bash
-run_analysis.bat g2.py
-run_analysis.bat Concentration.py
-run_analysis.bat Strain_map.py
-```
-
-### Method 2: Manual activation
-Activate the virtual environment first, then run scripts:
-
-```bash
-# Activate virtual environment
 .\venv\Scripts\Activate.ps1
-
-# Run scripts
-python script_name.py
 ```
 
-**Examples:**
+2. Launch Jupyter Lab or Jupyter Notebook:
 ```bash
-python g2.py
-python Concentration.py
-python Strain_map.py
+jupyter lab
+# or
+jupyter notebook
 ```
+
+3. Open `analysis.ipynb` and run the cells to perform the analysis.
 
 ## Output
 
-Scripts generate plots and save them as PNG/PDF files. Some scripts also print fitting parameters and analysis results to the console.
+The notebook generates plots and displays them inline. All analysis results are shown directly in the notebook cells.
 
 ## Project Structure
 
 ```
 StrainTuningDataFolder/
 ├── venv/                          # Virtual environment
-├── *.py                           # Python analysis scripts
-├── *.mat, *.txt, *.npz, *.xlsx   # Data files
-├── *.png, *.pdf                  # Generated plots
+├── analysis.ipynb                 # Main analysis notebook
+├── *.npz                          # Data files
 ├── requirements.txt              # Python dependencies
 ├── README.md                     # This file
-├── .gitignore                    # Git ignore rules
-├── run_analysis.bat              # Windows batch script for easy execution
-└── run_analysis.ps1              # PowerShell script for easy execution
+└── .gitignore                    # Git ignore rules
 ```
 
 ## Notes
 
-- Make sure the virtual environment is activated before running scripts
-- All data files should be in the same directory as the scripts
+- Make sure the virtual environment is activated before running the notebook
+- All data files should be in the same directory as the notebook
 - The `.gitignore` file excludes the virtual environment and generated plots from version control
-- Scripts use relative paths, so they should work regardless of the absolute location of the project folder
+- The notebook uses relative paths, so it should work regardless of the absolute location of the project folder
