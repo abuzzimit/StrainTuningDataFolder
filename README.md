@@ -1,5 +1,7 @@
 # Strain Tuning Data Analysis
 
+[![DOI](https://zenodo.org/badge/1046481580.svg)](https://doi.org/10.5281/zenodo.16989978)
+
 This repository contains a Jupyter notebook for analyzing strain tuning data for quantum emitters. The project is located in the `StrainTuningDataFolder` directory.
 
 ## Setup
